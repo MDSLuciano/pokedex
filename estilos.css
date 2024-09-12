@@ -44,14 +44,14 @@ body {
     width: 100%;
 }
 
-.pokemon p.numero {
+.pokemon p.number {
     font-weight: bold;
     color: #919191;
     margin-top: 3px;
     margin-bottom: 12px;
 }
 
-.pokemon p.nome {
+.pokemon p.name {
     font-weight: bold;
     font-size: 24px;
     margin-bottom: 6px;
@@ -124,4 +124,21 @@ body {
 .fade{
     background-color: #fdb9e9;
     color: white;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination button{
+    padding: 10px 20px;
+    color: white;
+    background-color: #6c79db ;
+    border: none;
+    border-radius: 1rem;
 }

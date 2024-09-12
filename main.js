@@ -1,30 +1,32 @@
+const pokemonsList = document.getElementById("pokemonsList")
+const loadMoreButton = document.getElementById("loadMoreButton")
+const limit = 5
+let offset = 0
 
-function convertPokemonTypesToDiv(pokemonTypes) {
-    return pokemonTypes.map((typesSlot) => `<div class="tipo ${typesSlot.type.name}">${typesSlot.type.name}</div>`
-    )
+function loadPokemonItens(offset, limit) {
+    pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+        const newHtml = pokemons.map((pokemon) => `
+            <div class="pokemon">
+                <img src="${pokemon.photo}" alt="Pokémon ${pokemon.name}" />
+                <p class="number">N. ${pokemon.number}</p>
+                <p class="name">${pokemon.name}</p>
+                <div class="lista-tipos">
+                    ${pokemon.types.map((type) => `<div class="tipo ${type}">${type}</div>`).join(" ")}
+                </div>
+            </div>
+        `
+        ).join('')
+        pokemonsList.innerHTML += newHtml
+    })
+
 }
 
-function convertHTML(pokemon) {
-    return `
-    <div class="pokemon">
-        <img src="${pokemon.sprites.other["official-artwork"].front_default}" alt="Pokémon ${pokemon.name}" />
-        <p class="numero">N. ${pokemon.order}</p>
-        <p class="nome">${pokemon.name}</p>
-        <div class="lista-tipos">
-            ${convertPokemonTypesToDiv(pokemon.types).join("")}
-        </div>
-    </div>
-    `
-}
+loadPokemonItens(offset, limit)
 
-const divListaPokemons = document.getElementById("lista-pokemons")
 
-pokeApi.getPokemons().then((pokemons = []) =>{
-    const newHtml = pokemons.map(convertHTML).join('')
-    divListaPokemons.innerHTML = newHtml
+loadMoreButton.addEventListener('click', () => {
+    offset += limit
+    loadPokemonItens(offset, limit)
 })
 
-function aumentarPrimeiraLetra(palavra) {
-    return palavra[0].toUpperCase() + palavra.substr(1)
-}
 
