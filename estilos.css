@@ -56,6 +56,7 @@ body {
     font-size: 24px;
     margin-bottom: 6px;
     margin-top: 0;
+    text-transform: capitalize;
 }
 
 .pokemon div.lista-tipos {
@@ -73,33 +74,34 @@ body {
     border-radius: 3px;
     text-align: center;
     padding: 2px;
+    text-transform: capitalize;
 }
 
-.planta {
+.grass {
     background-color: #9BCC50;
 }
 
-.venenoso {
+.poison {
     background-color: #B97FC9;
     color: white;
 }
 
-.fogo {
+.fire {
     background-color: #fd7d24;
     color: white;
 }
 
-.voador{
+.flying{
     background-color: #3dc7ef;
     color: white;
 }
 
-.agua{
+.water{
     background-color: #4592c4;
     color: white;
 }
 
-.inseto{
+.bug{
     background-color: #729f3f;
     color: white;
 }
@@ -109,17 +111,17 @@ body {
     color: white;
 }
 
-.terrestre{
+.ground{
     background-color: #a89410;
     color: white;
 }
 
-.eletrico{
+.electric{
     background-color: #eed535;
     color: white;
 }
 
-.fada{
+.fade{
     background-color: #fdb9e9;
     color: white;
 }
